@@ -21,8 +21,9 @@ const App = () => {
         <Navbar />
         <About />
         <Skills />
-        <Work />
         <Education />
+        <Work />
+
         <Contact />
         <Footer />
       </div>

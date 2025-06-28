@@ -78,7 +78,7 @@ const Contact = () => {
           <div>
             <p className="text-gray-300">📧 Email:</p>
             <p className="text-lg font-medium">
-              jannatul15-9342@diu.edu.bd
+              mutashamahiya678@gmail.com
             </p>{" "}
             {/* Replace with your email */}
           </div>
