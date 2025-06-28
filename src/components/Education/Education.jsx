@@ -1,4 +1,3 @@
-import React from "react";
 import { education } from "../../constants"; // Import the education data
 
 const Education = () => {
@@ -12,7 +11,8 @@ const Education = () => {
         <h2 className="text-4xl font-bold text-white">EDUCATION</h2>
         <div className="w-32 h-1 bg-purple-500 mx-auto mt-4"></div>
         <p className="text-gray-400 mt-4 text-lg font-semibold">
-          My education has been a journey of learning and development. Here are the details of my academic background
+          My education has been a journey of learning and development. Here are
+          the details of my academic background
         </p>
       </div>
 
@@ -65,8 +65,6 @@ const Education = () => {
                       {edu.school}
                     </h4>
                   </div>
-                  {/* Date at the bottom */}
-                  <p className="text-sm text-gray-500 mt-2">{edu.date}</p>
                 </div>
               </div>
 
