@@ -37,3 +37,53 @@ Interface-এর ডিজাইন আসলে object এবং class structur
 ৫) Performance বা Runtime-এ কোনোই প্রভাব নেই
 
 এটা কমন ভুল ধারণা যে এর মধ্যে performance পার্থক্য আছে। আসলে দুটোই compile-time জিনিস, JavaScript-এ এদের কোনো অস্তিত্ব থাকে না।
+
+
+# Union এবং Intersection Types —উদাহরণসহ
+
+TypeScript-এ union আর intersection দুইটাই খুব কাজে লাগে, কিন্তু কাজ দু’টো একদম আলাদা। নিচে ছোট উদাহরণ দিলে ব্যাপারটা পরিষ্কার হয়ে যাবে।
+
+
+---
+
+## Union Type — একাধিক টাইপের যেকোনো একটাকে অনুমতি দেয়
+
+Union মানে “এটা অথবা সেটা”।
+ধরুন, একটা ID কখনো number আবার কখনো string হতে পারে:
+
+type ID = number | string;
+
+function printId(id: ID) {
+  console.log("Your ID is:", id);
+}
+
+printId(10);
+printId("A-102");
+
+এখানে ID হতে পারে number কিংবা string — দুটোই valid।
+
+
+---
+
+ ## Intersection Type — দুইটা টাইপ মিলে একটিতে পরিণত হয়
+
+Intersection মানে “এবং”— অর্থাৎ দুই টাইপের সব প্রপার্টি মিলিয়ে একটা নতুন টাইপ।
+
+type Person = {
+  name: string;
+};
+
+type Employee = {
+  employeeId: number;
+};
+
+type Staff = Person & Employee;
+
+const user: Staff = {
+  name: "Robin",
+  employeeId: 101,
+};
+
+এখন Staff টাইপে দুটো টাইপের সব properties পাওয়া যাবে — name এবং employeeId দুটোই দিতে হবে।
+
+
