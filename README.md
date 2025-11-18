@@ -1,1 +1,39 @@
-# Test
+# Interfaces এবং Types এর মধ্যে পার্থক্য কি?
+
+TypeScript-এ আমরা দু’টো জিনিস খুব বেশি দেখি—interface আর type। দুটোই দেখতে অনেকটা একই রকম, আবার কাজেও অনেক জায়গায় একে-অপরের বিকল্প হিসেবে ব্যবহার করা যায়। তবুও কিছু সূক্ষ্ম পার্থক্য আছে, যেগুলো জানলে কোড আরও পরিষ্কারভাবে লিখতে সুবিধা হয়।
+
+১) Structure ডিফাইন করা—দুটোই পারে
+
+অবজেক্টের শেপ কেমন হবে, কোন কোন প্রোপার্টি থাকবে—এটা interface ও type দুটো দিয়েই লেখা যায়। তাই এই দিক থেকে একটার তুলনায় আরেকটা শক্তিশালী নয়।
+
+২) Interface সহজে Expand করা যায়
+
+Interfaces সাধারণত “বাড়ানো” খুব সহজ। মানে, একই নামে আবার লিখলে TypeScript সেটা.merge করে ফেলে। যেমন:
+
+interface User {
+  name: string;
+}
+
+interface User {
+  age: number;
+}
+
+দুটো মিলেই এখন একটাই User হবে।
+Type alias-এর ক্ষেত্রে এটা করা যায় না।
+
+৩) Type বেশি Flexible
+
+Type alias দিয়ে আমরা অনেক রকম কাজ করতে পারি—
+union, intersection, primitive type, function signature, tuple—সবই করা যায়।
+
+type ID = string | number;
+
+Interface দিয়ে union/primitive টাইপ বানানো যায় না।
+
+৪) Interface মূলত Object শেপের জন্য
+
+Interface-এর ডিজাইন আসলে object এবং class structure-এর জন্য বেশি উপযোগী। তাই ক্লাস-বেইজড ডিজাইনে interface একটু বেশি স্বাভাবিক লাগে।
+
+৫) Performance বা Runtime-এ কোনোই প্রভাব নেই
+
+এটা কমন ভুল ধারণা যে এর মধ্যে performance পার্থক্য আছে। আসলে দুটোই compile-time জিনিস, JavaScript-এ এদের কোনো অস্তিত্ব থাকে না।
